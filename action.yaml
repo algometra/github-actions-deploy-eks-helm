@@ -30,6 +30,9 @@ inputs:
     values:
         description: 'Comma separated list of value sets for helms. e.x: key1=value1,key2=value2'
         required: false
+    jsons:
+        description: 'Comma separated list of jsons used as --set-json'
+        required: false
     name:
         description: 'Name of the helm deploy.'
         required: true
@@ -104,6 +107,7 @@ runs:
         DEPLOY_CONFIG_FILES: ${{ inputs.config-files }}
         DEPLOY_NAMESPACE: ${{ inputs.namespace }}
         DEPLOY_VALUES: ${{ inputs.values }}
+        DEPLOY_JSONS: ${{ inputs.jsons }}
         DEPLOY_NAME: ${{ inputs.name }}
         DEPLOY_CHART_PATH: ${{ inputs.chart-path }}
         TIMEOUT: ${{ inputs.timeout }}

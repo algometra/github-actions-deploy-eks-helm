@@ -151,6 +151,10 @@ if [ "${HELM_ACTION}" == "install" ]; then
         HELM_COMMAND="${HELM_COMMAND} --set ${DEPLOY_VALUES}"
     fi
 
+    if [ -n "$DEPLOY_JSONS" ]; then
+        HELM_COMMAND="${HELM_COMMAND} --set-json ${DEPLOY_JSONS}"
+    fi
+
     if [ -n "$VERSION" ]; then
         HELM_COMMAND="${HELM_COMMAND} --version ${VERSION}"
     fi
